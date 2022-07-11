@@ -36,10 +36,7 @@ export class App extends Component {
           color: '#010101',
         }}
       >
-        <Section
-          onLeaveFeedback={this.leaveFeedback}
-          title="Please leave feedback"
-        >
+        <Section title="Please leave feedback">
           <FeedbackOptions
             options={this.state}
             onLeaveFeedback={this.leaveFeedback}

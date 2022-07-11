@@ -14,7 +14,6 @@ class FeedbackOptions extends Component {
         [name]: prev[name] + 1,
       };
     });
-    console.log(name);
     this.props.onLeaveFeedback(this.state);
   };
 

@@ -2,46 +2,32 @@ import { Component } from 'react';
 
 class FeedbackOptions extends Component {
   state = {
-    good: this.props.options.good,
-    neutral: this.props.options.neutral,
-    bad: this.props.options.bad,
+    good: 0,
+    neutral: 0,
+    bad: 0,
   };
 
-  IncrementGoodHandler = () => {
-    this.setState(prevState => {
+  IncrementButton = e => {
+    const { name } = e.target;
+    this.setState(prev => {
       return {
-        good: prevState.good + 1,
+        [name]: prev[name] + 1,
       };
     });
-    this.props.onLeaveFeedback(this.state);
-  };
-  IncrementNeutralHandler = () => {
-    this.setState(prevState => {
-      return {
-        neutral: prevState.neutral + 1,
-      };
-    });
-    this.props.onLeaveFeedback(this.state);
-  };
-  IncrementBadHandler = () => {
-    this.setState(prevState => {
-      return {
-        bad: prevState.bad + 1,
-      };
-    });
+    console.log(name);
     this.props.onLeaveFeedback(this.state);
   };
 
   render() {
     return (
       <div className="FeedBackButtons">
-        <button type="button" onClick={this.IncrementGoodHandler}>
+        <button name="good" type="button" onClick={this.IncrementButton}>
           Good
         </button>
-        <button type="button" onClick={this.IncrementNeutralHandler}>
+        <button name="neutral" type="button" onClick={this.IncrementButton}>
           Neutral
         </button>
-        <button type="button" onClick={this.IncrementBadHandler}>
+        <button name="bad" type="button" onClick={this.IncrementButton}>
           Bad
         </button>
       </div>

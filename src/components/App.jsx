@@ -11,8 +11,13 @@ export class App extends Component {
     bad: 0,
   };
 
-  leaveFeedback = values => {
-    this.setState(values);
+  leaveFeedback = buttonName => {
+    console.log(buttonName);
+    this.setState(prev => {
+      return {
+        [buttonName]: prev[buttonName] + 1,
+      };
+    });
   };
 
   countTotalFeedback = () => {
@@ -25,14 +30,13 @@ export class App extends Component {
   };
 
   render() {
+    const { good, neutral, bad } = this.state;
     return (
       <div
+        className="container"
         style={{
-          height: '100vh',
-          display: 'flex',
-          justifyContent: 'center',
+          padding: '25px',
           alignItems: 'center',
-          fontSize: 40,
           color: '#010101',
         }}
       >
@@ -41,11 +45,13 @@ export class App extends Component {
             options={this.state}
             onLeaveFeedback={this.leaveFeedback}
           />
+        </Section>
+        <Section>
           {this.countTotalFeedback() !== 0 ? (
             <Statistics
-              good={this.state.good}
-              neutral={this.state.neutral}
-              bad={this.state.bad}
+              good={good}
+              neutral={neutral}
+              bad={bad}
               total={this.countTotalFeedback()}
               positivePercentage={this.countPositiveFeedbackPercentage()}
             />

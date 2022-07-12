@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import styles from './style.module.css';
 
 class Statistics extends Component {
   render() {

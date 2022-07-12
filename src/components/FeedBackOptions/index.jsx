@@ -1,5 +1,6 @@
 import { Component } from 'react';
 import PropTypes from 'prop-types';
+import styles from './styles.module.css';
 
 class FeedbackOptions extends Component {
   IncrementFeedback = e => {
@@ -9,14 +10,29 @@ class FeedbackOptions extends Component {
 
   render() {
     return (
-      <div className="FeedBackButtons">
-        <button name="good" type="button" onClick={this.IncrementFeedback}>
+      <div className={styles.FeedBackButtons}>
+        <button
+          className={styles.FeedBackButton}
+          name="good"
+          type="button"
+          onClick={this.IncrementFeedback}
+        >
           Good
         </button>
-        <button name="neutral" type="button" onClick={this.IncrementFeedback}>
+        <button
+          className={styles.FeedBackButton}
+          name="neutral"
+          type="button"
+          onClick={this.IncrementFeedback}
+        >
           Neutral
         </button>
-        <button name="bad" type="button" onClick={this.IncrementFeedback}>
+        <button
+          className={styles.FeedBackButton}
+          name="bad"
+          type="button"
+          onClick={this.IncrementFeedback}
+        >
           Bad
         </button>
       </div>
